@@ -25,3 +25,33 @@ https://browserslist.dev/
 browserlist -> for multiple browser versions to support, it will guarantee your app support for the versions mentioned in your config (package.json).
 
 
+Script shortcuts
+```
+# replace npx parcel index.html
+npm run start
+or
+npm start
+
+# replace npx parcel build index.html
+npm run build
+```
+
+https://babeljs.io/
+
+A library to convert JSX syntaxed expressions to react elements. 
+ie. give
+```
+<h1 id="heading">Namaste react using JSX</h1>
+```
+to babel's website playground.
+
+
+
+
+
+
+
+
+
+
+
