@@ -4,7 +4,7 @@ https://parceljs.org/
 
 - package manager -> npm
 - bundler -> parcel (node package) dev buiold, local server, HMR (hot module replacement), File watching algo in c++, faster build due to caching (.parcel-cache folder), img optimazation, minification, bundling, compressing, differential bundling for older browsers versions support, https support
-- executor -> npx 
+- executor -> npx -> executes npm packages
 
 ```
 npm init -y # quick init no questions asked
@@ -19,7 +19,8 @@ npx parcel index.html # execute parcel passing the starting point of our app: in
 npx parcel build index.html # build for production (in dist folder)
 ```
 
-https://browsersl.ist/
+
+https://browserslist.dev/
 
 browserlist -> for multiple browser versions to support, it will guarantee your app support for the versions mentioned in your config (package.json).
 
