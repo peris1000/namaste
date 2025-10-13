@@ -4,6 +4,12 @@ import { useEffect, useState } from 'react';
 const Header = () => {
   const [btnName, setBtnName] = useState('Login');
 
+  // if no dependency array its called on every render
+  // if dependency array = [] its called on init render
+  useEffect(() => {
+    console.log('useEffect header called');
+  }, []);
+
   return (
     <div className="header">
       <div className="logo-container">

@@ -63,6 +63,9 @@ Normal JS functions (facebook devs created that inside react)
 - useState - state variables ie. const [listOfRestaurants, setListOfRestaurants] = useState(RESTAURANT_LIST);
   It uses Reconcilication Algorithm (aka ReactFiber)
 - useEffect - runs after rendering of the component
+  - if no dependency array its called on every render
+  - if dependency array = [] its called on init render
+  - if dependency array contains dependencies ie.btnName its called on init render and every time the btnName changes
 
 
 Read about js optional chaining json?.data?.data[0]...

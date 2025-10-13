@@ -62,7 +62,8 @@ const Body = () => {
         </button>
         <button
           onClick={() => {
-            fetchData();
+            setSearchText('');
+            setFilteredListOfRestaurants(listOfRestaurants);
           }}
           className="filter-btn"
         >
