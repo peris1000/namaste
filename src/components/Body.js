@@ -1,42 +1,60 @@
 import RestaurantCard from './RestaurantCard';
-import { RESTAURANT_LIST } from '../utils/mock_data';
-import { useState } from 'react';
+import Shimmer from './Shimmer';
+import { useEffect, useState } from 'react';
 
 const Body = () => {
   // Local State variable - super powerful
-  const [listOfRestaurants, setListOfRestaurants] = useState(RESTAURANT_LIST);
+  const [listOfRestaurants, setListOfRestaurants] = useState([]);
+  const [filteredListOfRestaurants, setFilteredListOfRestaurants] = useState(
+    []
+  );
+  const [searchText, setSearchText] = useState('');
 
-  // normal js variable
-  let mylistJS = [
-    {
-      id: 1,
-      name: 'Meghana Foods',
-      cuisine: 'Biryani, North Indian, Asian',
-      img_url:
-        'https://b.zmtcdn.com/data/pictures/5/18806395/85930dbbfb5c45c9ba6a498ceb198e8d_featured_v2.jpg',
-      avg_rating: 4.3,
-      delivery_time: 38,
-    },
-    {
-      id: 2,
-      name: 'Meghana Foods2',
-      cuisine: 'Biryani, North Indian, Asian',
-      img_url:
-        'https://b.zmtcdn.com/data/pictures/5/18806395/85930dbbfb5c45c9ba6a498ceb198e8d_featured_v2.jpg',
-      avg_rating: 3.3,
-      delivery_time: 38,
-    },
-  ];
+  console.log('Body render');
 
-  return (
+  // runs after render
+  useEffect(() => {
+    fetchData();
+  }, []);
+
+  const fetchData = async () => {
+    const data = await fetch('http://localhost:8080/restaurants'); // returns a promise, gets restaurants from spring-demo5 project and mongo
+
+    const json = await data.json();
+    console.log(json);
+    setListOfRestaurants(json);
+    setFilteredListOfRestaurants(json);
+  };
+
+  return listOfRestaurants.length === 0 ? (
+    <Shimmer /> //conditional rendering
+  ) : (
     <div className="body">
       <div className="filter">
+        <div className="search">
+          <input
+            type="text"
+            className="search-box"
+            value={searchText}
+            onChange={(e) => {
+              setSearchText(e.target.value);
+            }}
+          />
+          <button
+            onClick={() => {
+              const filtered = listOfRestaurants.filter((res) =>
+                res.name.toLowerCase().includes(searchText.toLowerCase())
+              );
+              setFilteredListOfRestaurants(filtered);
+            }}
+          >
+            Search
+          </button>
+        </div>
         <button
           onClick={() => {
-            const filtered = listOfRestaurants.filter(
-              (res) => res.avg_rating > 4
-            );
-            setListOfRestaurants(filtered);
+            const filtered = listOfRestaurants.filter((res) => res.rating > 4);
+            setFilteredListOfRestaurants(filtered);
           }}
           className="filter-btn"
         >
@@ -44,18 +62,22 @@ const Body = () => {
         </button>
         <button
           onClick={() => {
-            setListOfRestaurants(RESTAURANT_LIST);
+            fetchData();
           }}
           className="filter-btn"
         >
           All
         </button>
       </div>
-      <div className="res-container">
-        {listOfRestaurants.map((restaurant) => (
-          <RestaurantCard key={restaurant.id} resData={restaurant} />
-        ))}
-      </div>
+      {filteredListOfRestaurants.length === 0 ? (
+        <h1>No results</h1>
+      ) : (
+        <div className="res-container">
+          {filteredListOfRestaurants.map((restaurant) => (
+            <RestaurantCard key={restaurant.id} resData={restaurant} />
+          ))}
+        </div>
+      )}
     </div>
   );
 };

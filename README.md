@@ -62,10 +62,13 @@ Normal JS functions (facebook devs created that inside react)
 
 - useState - state variables ie. const [listOfRestaurants, setListOfRestaurants] = useState(RESTAURANT_LIST);
   It uses Reconcilication Algorithm (aka ReactFiber)
-- useEffect - 
+- useEffect - runs after rendering of the component
 
 
+Read about js optional chaining json?.data?.data[0]...
 
+
+shimmer ui -> show loading signs
 
 
 
