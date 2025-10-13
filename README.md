@@ -49,11 +49,22 @@ to babel's website playground.
 
 
 
-2 Types of Export
+### 2 Types of Export
 - Default -> export default MyList
   Import MyList from '...'
 - Named -> export const MYLIST = [...]
   Import {MYLIST} from '...'
+
+
+
+### React Hooks
+Normal JS functions (facebook devs created that inside react)
+
+- useState - state variables ie. const [listOfRestaurants, setListOfRestaurants] = useState(RESTAURANT_LIST);
+  It uses Reconcilication Algorithm (aka ReactFiber)
+- useEffect - 
+
+
 
 
 
