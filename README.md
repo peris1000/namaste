@@ -49,7 +49,11 @@ to babel's website playground.
 
 
 
-
+2 Types of Export
+- Default -> export default MyList
+  Import MyList from '...'
+- Named -> export const MYLIST = [...]
+  Import {MYLIST} from '...'
 
 
 
