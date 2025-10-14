@@ -72,7 +72,16 @@ Read about js optional chaining json?.data?.data[0]...
 
 
 shimmer ui -> show loading signs
+https://www.npmjs.com/package/react-shimmer-effects
 
 
+react.router-dom
+https://reactrouter.com/home
+
+npm i react-router-dom
 
 
+2 types of routing
+- Client side routing
+- Server side routing
+  

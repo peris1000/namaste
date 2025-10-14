@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import RestaurantCard from './RestaurantCard';
 import Shimmer from './Shimmer';
 import { useEffect, useState } from 'react';
@@ -18,7 +19,16 @@ const Body = () => {
   }, []);
 
   const fetchData = async () => {
-    const data = await fetch('http://localhost:8080/restaurants'); // returns a promise, gets restaurants from spring-demo5 project and mongo
+    const username = 'admin';
+    const password = 'admin1';
+    const basicAuth = 'Basic ' + btoa(`${username}:${password}`);
+    const data = await fetch('http://localhost:8080/api/restaurants', {
+      method: 'GET',
+      headers: {
+        Authorization: basicAuth,
+        'Content-Type': 'application/json',
+      },
+    }); // fetch returns a promise, gets restaurants from spring-demo5 project and mongo
 
     const json = await data.json();
     console.log(json);
@@ -75,7 +85,9 @@ const Body = () => {
       ) : (
         <div className="res-container">
           {filteredListOfRestaurants.map((restaurant) => (
-            <RestaurantCard key={restaurant.id} resData={restaurant} />
+            <Link to={'/restaurants/' + restaurant.id} key={restaurant.id}>
+              <RestaurantCard resData={restaurant} />
+            </Link>
           ))}
         </div>
       )}
