@@ -91,9 +91,10 @@ npm i react-router-dom
 Git pushes
 ```
 git add .
-git tag -a v7 -m "chapter 7"
-git commit -m "..."
+git tag -a v7 -m "chapter8"
+git commit -m "chapter8"
 git push
+git push origin v8
 ```
 
 

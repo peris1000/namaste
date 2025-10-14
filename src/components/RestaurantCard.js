@@ -8,7 +8,8 @@ const RestaurantCard = (props) => {
     resData;
 
   return (
-    <div className="res-card" style={styleCard}>
+    // <div className="res-card" style={styleCard}>
+    <div className="res-card" style={{ backgroundColor: '#f0f0f0' }}>
       <img className="res-card-img" src={img_url} />
       <h3>{name}</h3>
       <h5>{address}</h5>
