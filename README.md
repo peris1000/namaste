@@ -84,4 +84,18 @@ npm i react-router-dom
 2 types of routing
 - Client side routing
 - Server side routing
-  
+
+
+
+
+Git pushes
+```
+git add .
+git tag -a v7 -m "chapter 7"
+git commit -m "..."
+git push
+```
+
+
+
+
