@@ -1,8 +1,8 @@
 const Footer = () => {
   return (
-    <div className="footer">
+    <div className="flex justify-between">
       <div className="copyright">2026 Food Company</div>
-      <div className="nav-items">
+      <div className="flex items-center">
         <ul>
           <li>Home</li>
           <li>About Us</li>

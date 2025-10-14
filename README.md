@@ -91,12 +91,21 @@ npm i react-router-dom
 Git pushes
 ```
 git add .
-git tag -a v7 -m "chapter8"
-git commit -m "chapter8"
+git commit -m "chapter9"
+git tag -a v9 -m "chapter9"
+git push origin v9
 git push
-git push origin v8
 ```
 
+### chapter 9
+chunking
+lazy loading
 
+### styled components
+
+
+### tailwind css
+https://tailwindcss.com/docs/installation/framework-guides
+for parcel
 
 

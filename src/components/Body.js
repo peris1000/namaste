@@ -45,17 +45,18 @@ const Body = () => {
     <Shimmer /> //conditional rendering
   ) : (
     <div className="body">
-      <div className="filter">
-        <div className="search">
+      <div className="filter flex">
+        <div className="search m-4 p-4 flex items-center">
           <input
             type="text"
-            className="search-box"
+            className="border border-solid border-black"
             value={searchText}
             onChange={(e) => {
               setSearchText(e.target.value);
             }}
           />
           <button
+            className="px-4 py-2 bg-green-100 m-4 rounded-lg"
             onClick={() => {
               const filtered = listOfRestaurants.filter((res) =>
                 res.name.toLowerCase().includes(searchText.toLowerCase())
@@ -65,30 +66,33 @@ const Body = () => {
           >
             Search
           </button>
+
+          <button
+            className="px-4 py-2 bg-gray-50 m-4 rounded-lg"
+            onClick={() => {
+              const filtered = listOfRestaurants.filter(
+                (res) => res.rating > 4
+              );
+              setFilteredListOfRestaurants(filtered);
+            }}
+          >
+            Top rated restaurants
+          </button>
+          <button
+            className="px-4 py-2 bg-gray-50 m-4 rounded-lg"
+            onClick={() => {
+              setSearchText('');
+              setFilteredListOfRestaurants(listOfRestaurants);
+            }}
+          >
+            All
+          </button>
         </div>
-        <button
-          onClick={() => {
-            const filtered = listOfRestaurants.filter((res) => res.rating > 4);
-            setFilteredListOfRestaurants(filtered);
-          }}
-          className="filter-btn"
-        >
-          Top rated restaurants
-        </button>
-        <button
-          onClick={() => {
-            setSearchText('');
-            setFilteredListOfRestaurants(listOfRestaurants);
-          }}
-          className="filter-btn"
-        >
-          All
-        </button>
       </div>
       {filteredListOfRestaurants.length === 0 ? (
         <h1>No results</h1>
       ) : (
-        <div className="res-container">
+        <div className="flex flex-wrap">
           {filteredListOfRestaurants.map((restaurant) => (
             <Link to={'/restaurants/' + restaurant.id} key={restaurant.id}>
               <RestaurantCard resData={restaurant} />

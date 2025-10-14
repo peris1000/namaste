@@ -48,8 +48,8 @@ class ProfileClass extends React.Component {
     // const { count } = this.state;
     // debugger;
     return (
-      <div className="user-card">
-        <img width={100} src={avatar_url} />
+      <div className="m-4 p-4 border border-solid border-black rounded-lg bg-gray-50">
+        <img className="w-[100px]" src={avatar_url} />
         <h2>Name: {name}</h2>
         <h3>Company: {company}</h3>
         <h3>Location: {location}</h3>

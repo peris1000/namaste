@@ -24,8 +24,9 @@ const User = (props) => {
   console.log('Profile Render');
 
   return (
-    <div className="user-card">
+    <div className="m-4 p-4 border border-solid border-black rounded-lg bg-gray-50">
       <h2>Profile Component</h2>
+
       <h3>Name: {props.name}</h3>
 
       <div>
