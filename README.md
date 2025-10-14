@@ -108,4 +108,5 @@ lazy loading
 https://tailwindcss.com/docs/installation/framework-guides
 for parcel
 
+npm install tailwindcss @tailwindcss/postcss
 
