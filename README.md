@@ -116,3 +116,44 @@ npm install tailwindcss @tailwindcss/postcss
 - RestaurantCategories
 - UserContext
 
+### chapter 12
+- Redux (not mandatory - for large projects with lots reads/writes)
+Global state management, easier application debug, chrome extension
+https://redux.js.org/
+other similar for state mgmt libraries: zustand
+
+Redux laos uses `immer`: https://immerjs.github.io/immer/
+
+2 libs
+- react-redux
+- redux-toolkit (rtk) https://redux-toolkit.js.org/
+  
+Uses slices ie. users slice, cart slice, teams slice etc.
+
+
+#### write data
+Add to cart 
+  dispatches an action, 
+    the action calls a function (reducer), 
+      and the function modifies the cart object in the cart slice in the redux store.
+
+#### read data
+To read we use a selector (subscribing to the store) that reads from the slice
+  and the selector provides the data ie. the cart items in our header, meaning the header is subscribed to the store through the selector.
+
+And whener data is changed in the store react will rerender the subscribed header to the store automatically.
+
+
+Steps
+- Install libs
+  ```
+  npm install @reduxjs/toolkit
+  npm install react-redux
+  ```
+- Connect our store to our app (bridge)
+- Create slice (cart slice)
+- Dispatch action
+- Read data through selector
+
+https://redux-toolkit.js.org/rtk-query/overview
+

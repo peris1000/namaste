@@ -8,6 +8,11 @@ import Error from './components/Error';
 import RestaurantMenu from './components/RestaurantMenu';
 import { createBrowserRouter, RouterProvider, Outlet } from 'react-router-dom';
 import UserContext from './utils/UserContext';
+import { Provider } from 'react-redux';
+import appStore from './utils/appStore';
+import Cart from './components/Cart';
+
+// import store from './utils/store'; --- IGNORE ---
 // import Contact from './components/Contact';
 // import Grocery from './components/Grocery';
 
@@ -26,14 +31,16 @@ const AppLayout = () => {
   }, []);
 
   return (
-    // overrides the default value set in UserContext.js
-    <UserContext.Provider value={{ loggedInUser: userName, setUserName }}>
-      <div className="app">
-        <Header />
-        <Outlet />
-        <Footer />
-      </div>
-    </UserContext.Provider>
+    <Provider store={appStore}>
+      {/* overrides the default value set in UserContext.js */}
+      <UserContext.Provider value={{ loggedInUser: userName, setUserName }}>
+        <div className="app">
+          <Header />
+          <Outlet />
+          <Footer />
+        </div>
+      </UserContext.Provider>
+    </Provider>
   );
 };
 
@@ -57,6 +64,10 @@ const appRouter = createBrowserRouter([
             <Contact />
           </Suspense>
         ),
+      },
+      {
+        path: '/cart',
+        element: <Cart />,
       },
       {
         path: '/grocery',
