@@ -1,7 +1,20 @@
+// import { useContext } from 'react';
+// import UserContext from '../utils/UserContext';
+
 const RestaurantCard = (props) => {
   const { resData } = props;
-  const { id, name, address, img_url, cuisine, rating, delivery_time } =
-    resData;
+  // const { loggedInUser } = useContext(UserContext);
+
+  const {
+    id,
+    name,
+    address,
+    img_url,
+    cuisine,
+    rating,
+    delivery_time,
+    promoted,
+  } = resData;
 
   return (
     <div className="m-4 p-4 w-[200px] rounded-lg bg-gray-100 hover:bg-gray-200  hover:shadow-lg cursor-pointer">
@@ -14,4 +27,20 @@ const RestaurantCard = (props) => {
     </div>
   );
 };
+
+// Higher order component
+
+export const withPromotedLabel = (RestaurantCard) => {
+  return (props) => {
+    return (
+      <div>
+        <label className="absolute bg-black text-white p-1 m-2 rounded-lg">
+          Promoted
+        </label>
+        <RestaurantCard {...props} />
+      </div>
+    );
+  };
+};
+
 export default RestaurantCard;

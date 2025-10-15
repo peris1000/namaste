@@ -36,6 +36,9 @@ npm start
 npm run build
 ```
 
+http://localhost:1234
+
+
 https://babeljs.io/
 
 A library to convert JSX syntaxed expressions to react elements. 
@@ -98,15 +101,18 @@ git push
 ```
 
 ### chapter 9
-chunking
-lazy loading
+- chunking/lazy loading
+  
 
-### styled components
-
-
-### tailwind css
-https://tailwindcss.com/docs/installation/framework-guides
-for parcel
-
+### chapter 10
+- styled components
+- tailwind css
+https://tailwindcss.com/docs/installation/framework-guides for parcel
+```
 npm install tailwindcss @tailwindcss/postcss
+```
+
+### chapter 11
+- RestaurantCategories
+- UserContext
 

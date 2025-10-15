@@ -1,6 +1,7 @@
 import Profile from './Profile';
 import ProfileClass from './ProfileClass';
 import React from 'react';
+import UserContext from '../utils/UserContext';
 
 class About extends React.Component {
   constructor(props) {
@@ -9,25 +10,26 @@ class About extends React.Component {
 
   componentDidMount() {
     // runs after render
-    console.log('About mounted...');
+    // console.log('About mounted...');
   }
 
   render() {
-    // const { count, count2 } = this.state;
-
     return (
       <div>
         <h1>About us</h1>
         <h2> This is the about page</h2>
-
-        {/* {this.state.users.map((user) => {
-          <ProfileClass
-            name={user.name}
-            location={user.location}
-            contact={user.contact}
-          />;
-        })} */}
-        {/* <ProfileClass /> */}
+        <div>
+          Logged in user:
+          {/* <UserContext.Consumer>
+            {(data) => {
+              console.log(data);
+            }}
+          </UserContext.Consumer> */}
+          <UserContext.Consumer>
+            {({ loggedInUser }) => <h2>{loggedInUser}</h2>}
+          </UserContext.Consumer>
+        </div>
+        <ProfileClass />
         <Profile name="Peris" />
       </div>
     );

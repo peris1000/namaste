@@ -5,23 +5,23 @@ const User = (props) => {
   const [count2, setCount2] = useState(1);
 
   useEffect(() => {
-    console.log('Profile use effect1');
-    const timer = setInterval(() => {
-      console.log('interval call');
-    }, 1000);
+    // console.log('Profile use effect1');
+    // const timer = setInterval(() => {
+    //   console.log('interval call');
+    // }, 1000);
 
     // this function is called only when the component is getting unmounted
     return () => {
-      clearInterval(timer);
-      console.log('useEffect return');
+      // clearInterval(timer);
+      // console.log('useEffect return');
     };
   }, [count]);
 
   useEffect(() => {
-    console.log('Profile use effect2');
+    // console.log('Profile use effect2');
   }, [count2]);
 
-  console.log('Profile Render');
+  // console.log('Profile Render');
 
   return (
     <div className="m-4 p-4 border border-solid border-black rounded-lg bg-gray-50">

@@ -3,7 +3,7 @@ import React from 'react';
 class ProfileClass extends React.Component {
   constructor(props) {
     super(props);
-    console.log(props);
+    // console.log(props);
 
     this.state = {
       userInfo: {
@@ -17,12 +17,12 @@ class ProfileClass extends React.Component {
 
   async componentDidMount() {
     // runs after render
-    console.log('ProfileClass mounted...');
+    // console.log('ProfileClass mounted...');
 
     // problem of SPA
-    this.timer = setInterval(() => {
-      console.log('interval call');
-    }, 1000);
+    // this.timer = setInterval(() => {
+    //   console.log('interval call');
+    // }, 1000);
 
     // api calls
     const data = await fetch('https://api.github.com/users/peris1000');
@@ -33,14 +33,14 @@ class ProfileClass extends React.Component {
 
   componentDidUpdate(previousProps, previousState) {
     if (this.state.count !== previousState.count) {
-      console.log('state.count changed');
+      // console.log('state.count changed');
     }
-    console.log('ProfileClass did update');
+    // console.log('ProfileClass did update');
   }
 
   componentWillUnmount() {
-    console.log('ProfileClass will unmount');
-    clearInterval(this.timer);
+    // console.log('ProfileClass will unmount');
+    // clearInterval(this.timer);
   }
 
   render() {
